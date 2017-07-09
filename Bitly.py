@@ -1,6 +1,7 @@
 import sys
-import requests
 from pprint import pformat as pf
+
+import requests
 from requests.auth import HTTPBasicAuth
 
 
@@ -289,7 +290,7 @@ class Bitly:
 		res = self.s.get(api_url, params=params)
 		# pp(res.request.__dict__)
 		r = res.json()
-		if r['status_code'] == 500:
+		if r['status_code'] != 200:
 			raise HTTPError(
 				str(r['status_txt'] + ": %s\n" + pf(params)) % api_url)
 		else:
