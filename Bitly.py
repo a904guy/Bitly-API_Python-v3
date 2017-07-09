@@ -29,6 +29,10 @@ class Bitly:
         'link_referrers_by_domain': 'v3/link/referrers_by_domain',
         'link_referring_domains': 'v3/link/referring_domains',
         # User Info / History
+        'user_oauth': '/v3/oauth/app',
+        'user_info': '/v3/user/info',
+        'user_link': '/v3/user/link_history',
+        'user_tracking_domains': '/v3/user/tracking_domain_list'
         # User Metrics
         # Organization Metrics
         # Domains
@@ -186,7 +190,28 @@ class Bitly:
 
         return self._make_request(self.url % self.urls[sys._getframe().f_code.co_name], locals())
 
+    # User Info / History: https://dev.bitly.com/user_info.html
+
+    def user_oauth(self, client_id: str):
+
+        assert client_id is not None and isinstance(client_id, str)
+
+        return self._make_request(self.url % self.urls[sys._getframe().f_code.co_name], locals())
+
+    def user_info(self, login: str = None, full_name: str = None):
+
+        return self._make_request(self.url % self.urls[sys._getframe().f_code.co_name], locals())
+
+    def user_link(self, link: str = None, limit: int = None, offset: int = None, created_before: int = None, created_after: int = None, modified_after: int = None, expand_client_id: bool = None, archived: str = None, private: str = None, deeplinks: str = None, user: str = None, exact_domain: str = None, root_domain: str = None, keyword: str = None, query: str = None)
+
+        return self._make_request(self.url % self.urls[sys._getframe().f_code.co_name], locals())
+
+    def user_tracking_domains(self):
+
+        return self._make_request(self.url % self.urls[sys._getframe().f_code.co_name], locals())
+
     def _make_request(self, api_url: str, additional_params: dict):
+        
         params = {
             'access_token': self.token
         }
