@@ -212,7 +212,7 @@ class Bitly:
 
 		return self._make_request(self.url % self.urls[sys._getframe().f_code.co_name], locals())
 
-	def user_link(self, link: str = None, limit: int = None, offset: int = None, created_before: int = None, created_after: int = None, modified_after: int = None, expand_client_id: bool = None, archived: str = None, private: str = None, deeplinks: str = None, user: str = None, exact_domain: str = None, root_domain: str = None, keyword: str = None, query: str = None)
+	def user_link(self, link: str = None, limit: int = None, offset: int = None, created_before: int = None, created_after: int = None, modified_after: int = None, expand_client_id: bool = None, archived: str = None, private: str = None, deeplinks: str = None, user: str = None, exact_domain: str = None, root_domain: str = None, keyword: str = None, query: str = None):
 
 		return self._make_request(self.url % self.urls[sys._getframe().f_code.co_name], locals())
 
@@ -226,7 +226,7 @@ class Bitly:
 
 		return self._make_request(self.url % self.urls[sys._getframe().f_code.co_name], locals())
 
-	def user_countries(self, unit: str = 'day', timezone: str = 'America/New_York', rollup: bool = False, limit: int = 100, unit_reference_ts: str = 'now', format: str = 'json')
+	def user_countries(self, unit: str = 'day', timezone: str = 'America/New_York', rollup: bool = False, limit: int = 100, unit_reference_ts: str = 'now', format: str = 'json'):
 
 		return self._make_request(self.url % self.urls[sys._getframe().f_code.co_name], locals())
 
