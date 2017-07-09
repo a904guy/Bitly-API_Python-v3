@@ -29,11 +29,21 @@ class Bitly:
         'link_referrers_by_domain': 'v3/link/referrers_by_domain',
         'link_referring_domains': 'v3/link/referring_domains',
         # User Info / History
-        'user_oauth': '/v3/oauth/app',
-        'user_info': '/v3/user/info',
-        'user_link': '/v3/user/link_history',
-        'user_tracking_domains': '/v3/user/tracking_domain_list'
+        'user_oauth': '/v3/oauth/app',  #oauth
+        'user_info': '/v3/user/info',  #oauth
+        'user_link': '/v3/user/link_history',  #oauth
+        'user_tracking_domains': '/v3/user/tracking_domain_list',  #oauth
         # User Metrics
+        'user_clicks': '/v3/user/clicks',  #oauth
+        'user_countries': '/v3/user/countries',  #oauth
+        'user_popular_earned_by_clicks': '/v3/user/popular_earned_by_clicks',  #oauth
+        'user_popular_earned_by_shortens': '/v3/user/popular_earned_by_shortens',  #oauth
+        'user_popular_links': '/v3/user/popular_links',  #oauth
+        'user_popular_owned_by_clicks': '/v3/user/popular_owned_by_clicks',  #oauth
+        'user_popular_owned_by_shortens': '/v3/user/popular_owned_by_shortens',  #oauth
+        'user_referrers': '/v3/user/referrers',  #oauth
+        'user_referring_domains': '/v3/user/referring_domains',  #oauth
+        'user_shorten_counts': '/v3/user/shorten_counts',  #oauth
         # Organization Metrics
         # Domains
         # Campaigns
@@ -209,6 +219,58 @@ class Bitly:
     def user_tracking_domains(self):
 
         return self._make_request(self.url % self.urls[sys._getframe().f_code.co_name], locals())
+
+    # User Metrics: https://dev.bitly.com/user_metrics.html
+
+    def user_clicks(self, unit: str = 'day', timezone: str = 'America/New_York', rollup: bool = False, limit: int = 100, unit_reference_ts: str = 'now', format: str = 'json'):
+
+        return self._make_request(self.url % self.urls[sys._getframe().f_code.co_name], locals())
+
+    def user_countries(self, unit: str = 'day', timezone: str = 'America/New_York', rollup: bool = False, limit: int = 100, unit_reference_ts: str = 'now', format: str = 'json')
+
+        return self._make_request(self.url % self.urls[sys._getframe().f_code.co_name], locals())
+
+    def user_popular_earned_by_clicks(self, domain: str = None, unit: str = 'day', units: int = None, timezone: str = 'America/New_York', limit: int = 100, unit_reference_ts: str = 'now'):
+
+        assert domain is not None
+
+        return self._make_request(self.url % self.urls[sys._getframe().f_code.co_name], locals())
+
+    def user_popular_earned_by_shortens(self, domain: str = None, unit: str = 'day', units: int = None, timezone: str = 'America/New_York', limit: int = 100, unit_reference_ts: str = 'now'):
+
+        assert domain is not None
+
+        return self._make_request(self.url % self.urls[sys._getframe().f_code.co_name], locals())
+
+    def user_popular_links(self, unit: str = 'day', units: int = None, timezone: str = 'America/New_York', limit: int = 100, unit_reference_ts: str = 'now'):
+
+        return self._make_request(self.url % self.urls[sys._getframe().f_code.co_name], locals())
+
+    def user_popular_earned_by_clicks(self, domain: str = None, unit: str = 'day', units: int = None, timezone: str = 'America/New_York', limit: int = 100, unit_reference_ts: str = 'now'):
+
+        assert domain is not None
+
+        return self._make_request(self.url % self.urls[sys._getframe().f_code.co_name], locals())
+
+    def user_popular_earned_by_shortens(self, domain: str = None, unit: str = 'day', units: int = None, timezone: str = 'America/New_York', limit: int = 100, unit_reference_ts: str = 'now'):
+
+        assert domain is not None
+
+        return self._make_request(self.url % self.urls[sys._getframe().f_code.co_name], locals())
+
+    def user_referrers(self, unit: str = 'day', units: int = None, timezone: str = 'America/New_York', limit: int = 100, unit_reference_ts: str = 'now'):
+
+        return self._make_request(self.url % self.urls[sys._getframe().f_code.co_name], locals())
+
+    def user_referring_domains(self, unit: str = 'day', units: int = None, timezone: str = 'America/New_York', limit: int = 100, unit_reference_ts: str = 'now'):
+
+        return self._make_request(self.url % self.urls[sys._getframe().f_code.co_name], locals())
+
+    def user_shorten_counts(self, unit: str = 'day', units: int = None, timezone: str = 'America/New_York', limit: int = 100, unit_reference_ts: str = 'now'):
+
+        return self._make_request(self.url % self.urls[sys._getframe().f_code.co_name], locals())
+
+    
 
     def _make_request(self, api_url: str, additional_params: dict):
         
